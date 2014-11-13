@@ -1,8 +1,5 @@
 #!/bin/bash
 
-source "shell_helpers.sh"
-source "docker_helpers.sh"
-
 dir=$( cd "$( dirname "$0" )" && pwd )
 
 PROJECT_NAME=`basename $(pwd)`

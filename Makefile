@@ -7,6 +7,10 @@ default: .built run
 run:
 	./run --clean && ./run
 
+go-angular: .
+	./run --no-port go build
+	./run --no-port rice append --exec $@
+
 .built: .
 	docker build -t $(PROJECT_NAME) .
 	touch .built

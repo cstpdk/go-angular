@@ -10,10 +10,10 @@ func main() {
 	m := martini.Classic()
 	m.Use(martini.Static("static"))
 
-	http.Handle("/", http.FileServer(rice.MustFindBox("static").HTTPBox()))
 	r := martini.NewRouter()
 	m.Action(r.Handle)
 
-	http.ListenAndServe(":80", m)
-	m.Run()
+	http.Handle("/", http.FileServer(rice.MustFindBox("static").HTTPBox()))
+	http.ListenAndServe(":8080", m)
+
 }
